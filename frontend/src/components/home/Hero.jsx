@@ -30,13 +30,13 @@ const Hero = () => {
   return (
     <div className='px-5 sm:px-10 lg:px-20'>
         <Splide options={{
-            interval:3000,
+            interval:1500,
             type:'loop',
         arrows:false,
         autoplay:true}}>
     {heroData?.map((item)=>{
-        return   <SplideSlide>
-        <div key={item?.id} className='mt-[-50px] sm:mt-0 flex items-center justify-between'>
+        return   <SplideSlide key={item?.id}>
+        <div  className='mt-[-50px] sm:mt-0 flex items-center justify-between'>
             <div className='w-[50%] lg:w-[50%] flex flex-col gap-y-5'>
                 <h1 className='text-lg whitespace-nowrap sm:whitespace-wrap sm:text-xl md:text-2xl'>{item?.subTitle}</h1>
                 <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-[400] tracking-wider leading-[45px] sm:leading-[55px] lg:leading-[65px] whitespace-wrap '>{item?.title}</h1>

@@ -4,11 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body{
   font-family: 'Work Sans', sans-serif;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
 }
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
   cursor: pointer;
 }
 /* Track */
@@ -28,4 +29,29 @@ body{
 }
 .exclusive{
   background-image: url('./images/exclusive.png');
+}
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root{
+  width: 230px ;
+ 
+}
+.MuiPaper-root{
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.MuiPaper-root::before{
+  height: 0 !important;
+}
+th,td{
+  border-width: 1px;
+  padding:10px 15px;
+}
+
+@media screen  and (max-width:770px){
+  .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root{
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  
 }

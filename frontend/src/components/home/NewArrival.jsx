@@ -9,8 +9,8 @@ const NewArrival = () => {
       <h1>NewArrival</h1>
     </div>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-col-3 xl:grid-cols-4 mt-14 gap-x-10 gap-y-5">
-        {data?.map((item)=>{
-            return <ProductItem product={item} />
+        {data?.map((item,key)=>{
+            return <ProductItem key={key} product={item} />
         })}
       </div>
     </div>
