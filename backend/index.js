@@ -17,7 +17,7 @@ app.use('/api/users/',userRouter)
 const orderRouter=require('./routes/orderRoutes');
 app.use('/api/orders/',orderRouter);
 
-
-app.listen(8000,()=>{
-    console.log('Server is running on PORT 8000')
+const port = process.env.PORT || 5000;
+app.listen(port,()=>{
+    console.log('Server is running on PORT '+port)
 })
