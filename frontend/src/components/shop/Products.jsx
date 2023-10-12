@@ -8,7 +8,7 @@ const Products = () => {
   const dispatch=useDispatch();
   const products=useSelector((state)=>state.products.filteredProducts);
   useEffect(()=>{
-    axios.get('http://localhost:8000/api/products/getAllProducts')
+    axios.get('https://mern-ecommerce-rf2p.onrender.com/api/products/getAllProducts')
       .then((res)=>{
         dispatch(setProducts(res.data))
       }).catch(err=>console.log(err))

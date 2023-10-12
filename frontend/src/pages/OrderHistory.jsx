@@ -7,7 +7,7 @@ const OrderHistory = () => {
   const [orderHistory,setOrderHistory]=useState(null);
   const user=useSelector((state)=>state.user.user)
   useEffect(()=>{
-    axios.get(`http://localhost:8000/api/orders/${user.id}`)
+    axios.get(`https://mern-ecommerce-rf2p.onrender.com/api/orders/${user.id}`)
     .then((res)=>{
       console.log(res.data)
       setOrderHistory(res.data)
@@ -15,8 +15,8 @@ const OrderHistory = () => {
     .catch((err)=>console.log(err))
   },[user])
   return (
-    <div className='py-10 px-5 md:px-10'>
-        <h1 className="uppercase pb-5 border-b font-semibold text-center text-2xl">Order History</h1>
+    <div className='px-5 py-10 md:px-10'>
+        <h1 className="pb-5 text-2xl font-semibold text-center uppercase border-b">Order History</h1>
        <div className='overflow-x-scroll lg:overflow-x-hidden'>
        <table className='text-[14px] md:text-[16px] mx-auto my-5 border-collapse border border-slate-400'>
             <thead>

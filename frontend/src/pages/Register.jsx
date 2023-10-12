@@ -17,7 +17,7 @@ const Register = () => {
       });
       const onSubmitHandler = (data,e) => {
         e.preventDefault()
-        axios.post("http://localhost:8000/api/auth/register",data)
+        axios.post("https://mern-ecommerce-rf2p.onrender.com/api/auth/register",data)
         .then(res=>{
           console.log(res.data)
           navigate('/login')
