@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import OrderCheckout from './OrderCheckout';
 
 const CartOrder = () => {
+  const user=useSelector((state)=>state.user.user);
   const cart=useSelector((state)=>state.cart.cart);
   const [totalItems,setTotalItems]=useState(0);
   let [totalPrice,setTotalPrice]=useState(0);
@@ -24,7 +25,7 @@ const CartOrder = () => {
       <h1>Total Price:</h1>
       <h1>${totalPrice}</h1>
     </div>
-    <OrderCheckout total={totalPrice} />
+   {user?.name ?  <OrderCheckout total={totalPrice} /> : ''}
  </div>
   )
 }

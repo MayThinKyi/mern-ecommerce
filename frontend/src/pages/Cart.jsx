@@ -11,17 +11,15 @@ const Cart = () => {
   const user=useSelector((state)=>state.user.user);
   const cart=useSelector((state)=>state.cart.cart);
 
-  useEffect(()=>{
-   if(!user?.name) navigate('/login')
-  },[])
+  
   return (
-    <div className='py-10  md:px-10'>
+    <div className='py-10 md:px-10'>
       <h1 className="pb-5 text-2xl font-semibold text-center border-b">SHOPPING CART</h1>
       {cart.length>0  ?
       <div className='flex flex-wrap justify-between xl:flex-nowrap'>
        <div>
        {cart?.map((cart,key)=>{
-          return <div key={key} className='select-none flex items-center justify-between py-4 border-b md:py-3'>
+          return <div key={key} className='flex items-center justify-between py-4 border-b select-none md:py-3'>
             <img src={cart?.image} className='h-[100px] sm:h-[150px] md:h-[100px] w-auto object-contain' />
             <div className="flex flex-col text-md md:text-lg gap-y-2 md:gap-y-0 md:flex-row md:items-center md:gap-x-8 lg:gap-x-14 ">
             <h1>{cart?.brand}</h1>
