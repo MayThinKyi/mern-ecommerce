@@ -20,17 +20,19 @@ const OrderHistory = () => {
        <div className='overflow-x-scroll lg:overflow-x-hidden'>
        <table className='text-[14px] md:text-[16px] mx-auto my-5 border-collapse border border-slate-400'>
             <thead>
+                <tr>
                 <th>Order ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Transaction ID</th>
                 <th>Total Amount</th>
                 <th>Status</th>
+                </tr>
             </thead>
             <tbody className='text-[14px] cursor-pointer'>
                {orderHistory?.map((o)=>{
                 return  <tr key={o?._id}>
-                <OrderHistoryModal order={o} />
+                <td><OrderHistoryModal order={o} /></td>
                 <td>{o?.name}</td>
                 <td>{o?.email}</td>
                 <td>{o?.transactionId}</td>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { data } from '../../data'
 import ProductItem from '../ui/ProductItem'
-import DarkButton from '../ui/DarkButton'
 
 const MacbooksSeries = () => {
     const [macbooks,setMacbooks]=useState(data?.filter((d)=>d?.category==='Notebooks'))

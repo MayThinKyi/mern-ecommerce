@@ -1,6 +1,6 @@
 import React from 'react'
-import { data } from '../../data'
 import ProductItem from '../ui/ProductItem'
+import { data } from '../../data'
 
 const NewArrival = () => {
   return (
