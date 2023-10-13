@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/userSlice';
+import toast from 'react-hot-toast';
 const schema = yup.object().shape({
     email: yup.string().email().required(),
     password:yup.string().min(8).max(32).required(),
@@ -23,10 +24,11 @@ const Login = () => {
         .then(res=>{
           console.log(res.data)
           dispatch(setUser(res.data))
+          toast.success('User logged in successfully!')
           navigate('/')
         })
         .catch(err=>{console.log(err)
-        alert(err.response.data.error)})
+          toast.error(err.response.data.error)})
       };
   return (
     <div className='px-5 py-10 cursor-pointer md:px-10'>

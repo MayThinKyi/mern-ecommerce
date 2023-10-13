@@ -32,4 +32,22 @@ const updateProductById=(req,res)=>{
     .then((data)=>res.send('Product updated successfully!'))
     .catch(err=>res.status(400).json({error:err}))
 }
-module.exports={getAllProducts,createProduct,getProductById,deleteProductById,updateProductById}
+const addReview=(req,res)=>{
+    const {comment,name,productId,rating,userId}=req.body;
+   ProductsModel.findById(productId)
+    .then((product)=>{
+        product.reviews=[...product.reviews,{
+            rating,comment,userId,name
+        }]
+        let totalRating=0;
+        product.reviews.map((r)=>totalRating+=r.rating);
+        product.overallRating=totalRating/product.reviews.length;
+        product.save()
+        .then(()=>res.send('Review submitted successfully!'))
+        .catch(err=>res.status(400).json({error:err}))
+
+    })
+}
+
+module.exports={getAllProducts,createProduct,getProductById,
+    deleteProductById,updateProductById,addReview}

@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import toast from 'react-hot-toast'
 const schema = yup.object().shape({
     name: yup.string().required(),
     email: yup.string().email().required(),
@@ -20,10 +21,11 @@ const Register = () => {
         axios.post("https://mern-ecommerce-rf2p.onrender.com/api/auth/register",data)
         .then(res=>{
           console.log(res.data)
+          toast.success('Registered successfully!')
           navigate('/login')
         })
         .catch(err=>{console.log(err)
-        alert(err.response.data.error)})
+        toast.error(err.response.data.error)})
       };
   return (
     <div className='px-5 py-10 cursor-pointer md:px-10'>
@@ -51,7 +53,7 @@ const Register = () => {
             <p className='text-[14px] text-red-500'>{errors.confirmPassword?.message}</p>
             </div>
             <button type='submit' className='w-full border text-center  rounded-lg py-2 px-5 md:py-3 sm:px-10 text-sm lg:text-md cursor-pointer font-[400] bg-[#0F2027] transition-all duration-150 ease-in text-white hover:bg-white hover:border-black hover:text-black'>
-             Login
+             Register
             </button>
         </form>
         <div className="text-[15px] my-4 flex  items-center gap-x-4">

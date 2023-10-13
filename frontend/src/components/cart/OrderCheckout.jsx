@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { placeOrder, removeCart } from '../../store/cartSlice';
+import toast from 'react-hot-toast';
 
 const OrderCheckout = ({total}) => {
     const dispatch=useDispatch();
@@ -9,6 +10,7 @@ const OrderCheckout = ({total}) => {
     const user=useSelector((state)=>state.user.user);
     const tokenHandler=(token)=>{
         dispatch(placeOrder({token,total,user,cart}))
+        toast.success('Ordered successfully!')
         dispatch(removeCart());
     }
   return (

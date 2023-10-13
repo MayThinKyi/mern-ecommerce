@@ -2,17 +2,21 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import OrderHistoryModal from '../components/order/OrderHistoryModal';
+import { useNavigate } from 'react-router-dom';
 
 const OrderHistory = () => {
+  const navigate=useNavigate();
   const [orderHistory,setOrderHistory]=useState(null);
   const user=useSelector((state)=>state.user.user)
   useEffect(()=>{
-    axios.get(`https://mern-ecommerce-rf2p.onrender.com/api/orders/${user.id}`)
+    if(user?.name){
+      axios.get(`https://mern-ecommerce-rf2p.onrender.com/api/orders/${user.id}`)
     .then((res)=>{
       console.log(res.data)
       setOrderHistory(res.data)
     })
     .catch((err)=>console.log(err))
+    }else navigate('/login')
   },[user])
   return (
     <div className='px-5 py-10 md:px-10'>

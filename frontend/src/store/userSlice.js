@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios';
 export const userSlice = createSlice({
     name:'user',
     initialState:{
@@ -17,10 +18,21 @@ export const userSlice = createSlice({
         userLogout:(state)=>{
             state.user=[];
             localStorage.removeItem('mern-ecommerce-user')
+        },
+        updateUserProfile:(state,action)=>{
+            axios.put('https://mern-ecommerce-rf2p.onrender.com/api/users/updateProfile',action.payload)
+            .then((res)=>{
+             console.log(res.data)
+            })
+            .catch(err=>console.log(err))
+            state.user.name=action.payload.name;
+            localStorage.setItem('mern-ecommerce-user',JSON.stringify(state.user));
+
         }
+
 
     }
 })
-export const {setUser,userLogout} = userSlice.actions
+export const {setUser,userLogout,updateUserProfile} = userSlice.actions
   
   export default userSlice.reducer

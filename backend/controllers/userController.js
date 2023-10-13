@@ -10,7 +10,7 @@ const getUserProfile=(req,res)=>{
 const updateUserProfile=(req,res)=>{
     const {id,name,email}=req.body;
     UserModel.findByIdAndUpdate(id,{name,email})
-    .then((data)=>res.send("User Profile updated successfully!"))
+    .then((data)=>res.send({message:"User Profile updated successfully!",user:data}))
     .catch(err=>res.status(400).json({error:err}))
 }
 const userPasswordChange=(req,res)=>{
