@@ -15,6 +15,12 @@ import Product from './pages/Product';
 import ScrollToTop from "./components/ui/ScrollToTop";
 import UpdatePassword from "./pages/UpdatePassword";
 import { Toaster } from "react-hot-toast";
+import Dashboard from "./pages/admin/Dashboard";
+import CreateProduct from "./pages/admin/CreateProduct";
+import OrderList from "./pages/admin/orders/OrderList";
+import ProductList from "./pages/admin/products/ProductList";
+import UserList from './pages/admin/users/UserList';
+import EditProduct from "./pages/admin/products/EditProduct";
 function App() {
   const {isSidebarOpen}=useContext(SideBarContext)
   return (
@@ -34,6 +40,14 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/products/:productId" element={<Product/>} />
           <Route path="/update-password" element={<UpdatePassword/>} />
+          {/* Admin Routes  */}
+          <Route path="/admin/" element={<Dashboard/>}>
+            <Route path="dashboard"  element={<UserList/>} />
+            <Route path="products"  element={<ProductList/>} />
+            <Route path="orders"  element={<OrderList/>} />
+            <Route path="create-product"  element={<CreateProduct/>} />
+            <Route path="edit-product/:productId"  element={<EditProduct/>} />
+          </Route>
         </Routes>
         <Footer/>
         </ScrollToTop>

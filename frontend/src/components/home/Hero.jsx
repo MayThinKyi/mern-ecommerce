@@ -40,7 +40,7 @@ const Hero = () => {
             <div className='w-[50%] lg:w-[50%] flex flex-col gap-y-5'>
                 <h1 className='text-lg whitespace-nowrap sm:whitespace-wrap sm:text-xl md:text-2xl'>{item?.subTitle}</h1>
                 <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-[400] tracking-wider leading-[45px] sm:leading-[55px] lg:leading-[65px] whitespace-wrap '>{item?.title}</h1>
-                <DarkButton title={'SHOP NOW'} />
+                <DarkButton title={'SHOP NOW'} link={'/shop'} />
             </div>
             <img className='w-[50%] lg:w-[50%] h-[400px] object-contain' src={item?.img} alt={item?.title} />
         </div>

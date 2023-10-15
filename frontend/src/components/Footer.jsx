@@ -15,12 +15,12 @@ const Footer = () => {
     <div className='bg-[#0F2027] text-white p-10 cursor-pointer'>
         <div className="flex flex-wrap lg:flex-nowrap gap-y-10 gap-x-20">
             <div>
-                <h1 className='text-4xl font-[500] mb-8'>Empress</h1>
+                <h1 className='text-4xl font-[500] mb-8'>iNexus</h1>
                     <div className="flex mb-3 text-zinc-400 hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
-                        <p>empress@gmail.com</p>
+                        <p>iNexus@gmail.com</p>
                     </div>
                     <div className="flex mb-3 text-zinc-400 hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">

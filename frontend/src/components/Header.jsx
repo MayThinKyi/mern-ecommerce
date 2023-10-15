@@ -13,7 +13,7 @@ const Header = () => {
         <svg onClick={()=>setIsSidebarOpen(!isSidebarOpen)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
         </svg>
-        <Link to={'/'} className='tracking-[6px] sm:tracking-[12px] text-xl'>EMPRESS</Link>
+        <Link to={'/'} className='tracking-[1px] sm:tracking-[3px] text-2xl'>iNexus</Link>
       </div>
       <div className='flex items-center gap-4'> 
         <SearchInput displayProps={'hidden md:flex'} />

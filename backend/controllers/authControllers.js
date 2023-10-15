@@ -3,6 +3,7 @@ const bcrypt=require('bcrypt');
 const {sign}=require('jsonwebtoken');
 const registerUser=(req,res)=>{
     const {name,email,password}=req.body;
+    console.log(req.body)
     UserModel.findOne({email})
     .then((user)=>{
         if(user) res.status(400).json({error:'Email already exists!'})
@@ -11,7 +12,7 @@ const registerUser=(req,res)=>{
             .then((hash)=>{
                 const newUser=new UserModel({
                     name,
-                    email,password:hash
+                    email,password:hash,role:'user'
                 })
                 newUser.save()
                 .then((data)=>res.send('User registered successfully!'))

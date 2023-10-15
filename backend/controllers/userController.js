@@ -31,4 +31,27 @@ const userPasswordChange=(req,res)=>{
     })
     .catch(err=>res.status(400).json({error:err}))
 }
-module.exports={getUserProfile,updateUserProfile,userPasswordChange}
+const getAllUsers=(req,res)=>{
+    UserModel.find({})
+    .then((users)=>res.send(users))
+    .catch(err=>res.status(400).json({error:err}))
+}
+const userChangeRole=(req,res)=>{
+    const userId=req.params.userId;
+    UserModel.findById(userId)
+    .then((user)=>{
+        user.role=user.role==='admin' ? 'user' : 'admin';
+        user.save()
+        .then((data)=>res.send('User role changed successfully!')) 
+        .catch((err=>res.status(400).json({error:err})))
+    }) .catch((err=>res.status(400).json({error:err})))
+
+}
+const deleteUser=(req,res)=>{
+    const userId=req.params.userId;
+    UserModel.findByIdAndRemove(userId)
+    .then(()=>res.send('User deleted successfully!'))
+    .catch(err=>res.status(400).json({error:err}))
+}
+module.exports={getUserProfile,updateUserProfile,userPasswordChange,
+    getAllUsers,userChangeRole,deleteUser}

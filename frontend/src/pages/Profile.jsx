@@ -25,7 +25,7 @@ const Profile = () => {
   useEffect(()=>{
     if(!user.name) navigate('/login')
     else {
-      axios.get(`https://mern-ecommerce-rf2p.onrender.com/api/users/${user.id}`)
+      axios.get(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/users/${user.id}`)
       .then((res)=>{
         console.log(res.data)
         setUserInfo({
@@ -36,8 +36,8 @@ const Profile = () => {
     }
   },[])
   return (
-    <div className='py-10 px-5 md:px-10'>
-        <h1 className="uppercase pb-5 border-b font-semibold text-center text-2xl">Account Info</h1>
+    <div className='px-5 py-10 md:px-10'>
+        <h1 className="pb-5 text-2xl font-semibold text-center uppercase border-b">Account Info</h1>
         <div className="w-[100%] sm:w-[40%] mx-auto mt-8">
             <div className="mb-4">
             <h1 className='text-[15px] mb-1'>Name</h1>

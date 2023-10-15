@@ -20,7 +20,7 @@ const Login = () => {
       });
       const onSubmitHandler = (data,e) => {
         e.preventDefault()
-        axios.post("https://mern-ecommerce-rf2p.onrender.com/api/auth/login",data)
+        axios.post(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/auth/login`,data)
         .then(res=>{
           console.log(res.data)
           dispatch(setUser(res.data))

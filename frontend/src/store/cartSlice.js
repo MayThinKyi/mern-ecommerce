@@ -42,7 +42,7 @@ export const cartSlice = createSlice({
         },
         placeOrder:(state,action)=>{
             const {token,total,user}=action.payload;
-            axios.post('https://mern-ecommerce-rf2p.onrender.com/api/orders/createOrder',action.payload)
+            axios.post(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/orders/createOrder`,action.payload)
             .then((res)=>{
                 console.log(res.data)
             })

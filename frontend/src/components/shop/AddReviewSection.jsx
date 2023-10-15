@@ -13,7 +13,7 @@ const AddReviewSection = ({productId}) => {
      }
      const submitReviewHandler=(e)=>{
       e.preventDefault()
-       axios.post('https://mern-ecommerce-rf2p.onrender.com/api/products/addReview',{
+       axios.post(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/products/addReview`,{
         productId,userId:user.id,name:user.name,rating:Number(review.rating),comment:review.comment
        }
        ).then((res)=>{

@@ -17,12 +17,15 @@ export const productSlice = createSlice({
         if(state.filterOptions.searchQuery) state.filteredProducts=state.products.filter((p)=>p?.name?.toLowerCase()?.includes(state.filterOptions.searchQuery?.toLowerCase()))
         else state.filteredProducts=state.products
         if(state.filterOptions.brand!=='all'){
-           if(state.filterOptions.brand==='apple')  state.filteredProducts=state.filteredProducts.filter((p)=>p?.brand?.toLowerCase()==='apple');
+           if(state.filterOptions.brand==='apple') state.filteredProducts=state.filteredProducts?.filter((p)=>p?.brand?.toLowerCase()==='apple')
+           
         }
         if(state.filterOptions.category!=='all'){
             if(state.filterOptions.category==='mobile')  state.filteredProducts=state.filteredProducts.filter((p)=>p?.category?.toLowerCase()==='mobile');
             if(state.filterOptions.category==='notebooks')  state.filteredProducts=state.filteredProducts.filter((p)=>p?.category?.toLowerCase()==='notebooks');
-        }
+            if(state.filterOptions.category==='watch')  state.filteredProducts=state.filteredProducts.filter((p)=>p?.category?.toLowerCase()==='watch');
+
+          }
         if(state.filterOptions.price!=='all'){
         if(state.filterOptions.price==='1to500')  state.filteredProducts=state.filteredProducts.filter((p)=>p?.price>1&&p?.price<=500);
         if(state.filterOptions.price==='500to1500')  state.filteredProducts=state.filteredProducts.filter((p)=>p?.price>=500&&p?.price<=1500);

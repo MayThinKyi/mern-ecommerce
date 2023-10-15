@@ -18,14 +18,16 @@ const Register = () => {
       });
       const onSubmitHandler = (data,e) => {
         e.preventDefault()
-        axios.post("https://mern-ecommerce-rf2p.onrender.com/api/auth/register",data)
+        axios.post(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/auth/register`,data)
         .then(res=>{
           console.log(res.data)
           toast.success('Registered successfully!')
           navigate('/login')
         })
-        .catch(err=>{console.log(err)
-        toast.error(err.response.data.error)})
+        .catch(err=>{
+          console.log(err)
+        //toast.error(err.response?.data?.error)
+      })
       };
   return (
     <div className='px-5 py-10 cursor-pointer md:px-10'>

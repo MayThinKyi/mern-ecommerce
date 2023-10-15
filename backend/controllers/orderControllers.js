@@ -41,4 +41,15 @@ const getUserOrderHistory=(req,res)=>{
     .then((orders)=>res.send(orders))
     .catch(err=>res.status(400).json({error:err}))
 }
-module.exports={createOrder,getUserOrderHistory}
+const getAllOrders=(req,res)=>{
+    OrderModel.find({})
+    .then((data)=>res.send(data))
+    .catch(err=>res.status(400).json({error:err}))
+}
+const changeOrderStatus=(req,res)=>{
+    const {orderId,status}=req.body;
+    OrderModel.findByIdAndUpdate(orderId,{status})
+    .then(()=>res.send('Order status updated successfully!'))
+    .catch(err=>res.status(400).json(err))
+}
+module.exports={createOrder,getUserOrderHistory,getAllOrders,changeOrderStatus}

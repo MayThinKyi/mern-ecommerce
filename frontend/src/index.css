@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body{
   font-family: 'Work Sans', sans-serif;
   overflow-x: hidden;
@@ -55,4 +56,41 @@ th,td{
     width: 100% !important;
   }
   
+}
+/* TInymice */
+
+.tinymice h1,h2,h3,h4,h5,h6,p,.tinymice ul li,.tinymice ul li sup,.tinymice ul li strong,.tinymice em{
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  font-style: normal !important;
+}
+
+.tinymice ul li,.tinymice ul li sup,.tinymice ul li strong{
+  list-style-type: disc !important;
+  margin-bottom: 6px !important;
+}
+
+.pagination{
+  display: flex !important;
+  align-items: center !important;
+  column-gap: 20px !important;
+  justify-content: center !important;
+
+}
+.pagination li a{
+  background: #f2f0f0;
+  color: blue;
+  border:1px solid #f2f0f0;
+ width: 50px;
+ height: 50px;
+ border-radius: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.previous a,.next a{
+  padding: 5px 15px !important;
+  border-radius: 25px !important;
+  height: 30px;
+  width:90px !important;
 }

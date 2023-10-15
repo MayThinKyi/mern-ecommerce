@@ -74,6 +74,10 @@ const [expanded, setExpanded] = useState(window.innerWidth>770 ?
             <input type='radio' checked={filterOptions.category==='notebooks'} onChange={()=>filterOptionsHandler('category','notebooks')} value={'notebooks'}  />
             <p>Notebooks</p>
           </div>
+          <div className="flex items-center gap-2 mb-2">
+            <input type='radio' checked={filterOptions.category==='watch'} onChange={()=>filterOptionsHandler('category','watch')} value={'watch'}  />
+            <p>Watch</p>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded.panel3}  id='panel3' onChange={handleChange('panel3')}>

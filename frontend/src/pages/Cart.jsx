@@ -24,7 +24,7 @@ const Cart = () => {
             <div className="flex flex-col text-md md:text-lg gap-y-2 md:gap-y-0 md:flex-row md:items-center md:gap-x-8 lg:gap-x-14 ">
             <h1>{cart?.brand}</h1>
             <h1>{cart?.name}</h1>
-            <h1>{cart?.price}</h1>
+            <h1>${cart?.price}</h1>
             <div className='flex items-center px-6 py-1 border gap-x-5 sm:gap-x-10'>
               <button onClick={()=>dispatch(updateQuantity({cartId:cart.cartId,status:'plus'}))} className='text-xl'>+</button>
               <h1>{cart?.quantity}</h1>

@@ -30,7 +30,7 @@ const Product = () => {
     }
     useEffect(()=>{
       setLoading(true)
-      axios.get(`https://mern-ecommerce-rf2p.onrender.com/api/products/${productId}`)
+      axios.get(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/products/${productId}`)
       .then((res)=>{
         setProduct(res.data)
         setLoading(false);
@@ -40,11 +40,11 @@ const Product = () => {
   return (
     <div className='px-5 py-10 sm:px-10'>
       {loading ? <ProductSkeleton/>  : <>
-      <div className="flex flex-wrap pb-10 border-b md:flex-nowrap gap-x-20">
-        <div className=' p-8 bg-[#FAFAFA]'>
-        <img className='object-contain w-auto h-[160px]' src={product?.image}/>
+      <div className="flex flex-wrap pb-10 border-b md:flex-nowrap gap-x-10">
+        <div className='w-[40%]'>
+        <img className='object-contain  mx-auto w-auto h-[260px] ' src={product?.image}/>
         </div>
-        <div>
+        <div className='w-[60%]'>
           <h1 className='mb-2 text-xl font-semibold '>{product?.name}</h1>
           <div className="flex items-center gap-x-1">
           <ReactStars
@@ -62,7 +62,8 @@ const Product = () => {
         
           <button onClick={addToCartHandler} className='mb-1 mt-3 px-5 py-[6px] text-sm text-white transition-all duration-150 ease-in border bg-slate-800 hover:bg-white hover:text-black hover:border-black'>Add To Cart</button>
           <h1 className='mt-6 mb-2 text-xl font-semibold'>About this item</h1>
-          <p>{product?.description}</p>
+          <div className='tinymice font-[400] text-lg text-left '  dangerouslySetInnerHTML={{ __html: product?.description }}/>
+
         </div>
       </div>
       {user?.name ? <AddReviewSection productId={product?._id} /> : 

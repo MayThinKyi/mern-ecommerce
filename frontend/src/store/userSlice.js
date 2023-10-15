@@ -7,11 +7,12 @@ export const userSlice = createSlice({
     },
     reducers:{
         setUser:(state,action)=>{
-            const {token,user:{name,_id}}=action.payload;
+            const {token,user:{name,_id,role}}=action.payload;
             state.user={
                 token,
                 name,
-                id:_id
+                id:_id,
+                role
             }
             localStorage.setItem('mern-ecommerce-user',JSON.stringify(state.user));
         },
@@ -20,7 +21,7 @@ export const userSlice = createSlice({
             localStorage.removeItem('mern-ecommerce-user')
         },
         updateUserProfile:(state,action)=>{
-            axios.put('https://mern-ecommerce-rf2p.onrender.com/api/users/updateProfile',action.payload)
+            axios.put(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/users/updateProfile`,action.payload)
             .then((res)=>{
              console.log(res.data)
             })

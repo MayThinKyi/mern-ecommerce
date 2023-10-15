@@ -10,8 +10,9 @@ const Products = () => {
   const [loading,setLoading]=useState(false);
   const products=useSelector((state)=>state.products.filteredProducts);
   useEffect(()=>{
+   // console.log(process.env.REACT_APP_MERN_ECOMMERCE_URL)
     setLoading(true)
-    axios.get('https://mern-ecommerce-rf2p.onrender.com/api/products/getAllProducts')
+    axios.get(`${process.env.REACT_APP_MERN_ECOMMERCE_URL}/api/products/getAllProducts`)
       .then((res)=>{
         dispatch(setProducts(res.data))
         setLoading(false)
