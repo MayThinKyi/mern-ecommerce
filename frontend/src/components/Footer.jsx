@@ -53,7 +53,7 @@ const Footer = () => {
             <button className='px-8 py-2 text-white rounded-lg bg-zinc-700'>Subscribe</button>
             </div>
         </div>
-      <p className='mt-10 text-center text-zinc-400 '>© Empress Store. All rights reserved</p>
+      <p className='mt-10 text-center text-zinc-400 '>© iNexus Store. All rights reserved</p>
     </div>
   )
 }
